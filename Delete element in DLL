@@ -1,0 +1,41 @@
+//Deletion of element DLL
+class Solution {
+public:
+    // Function to delete a node at given position.
+    Node* deleteNode(Node* head, int x) {
+        if (head == NULL) return NULL; // Edge case: Empty list
+
+        Node* temp = head;
+        int c = 1;
+
+        // Deleting head node
+        if (x == 1) {
+            head = head->next;
+            if (head) head->prev = NULL; // Ensure new head's prev is NULL
+            delete temp;
+            return head;
+        }
+
+        // Traverse to the x-th node
+        while (temp != NULL) {
+            if (c == x) break;
+            c++;
+            temp = temp->next;
+        }
+
+        if (temp == NULL) return head; // If x is out of bounds, return head
+
+        Node* back = temp->prev;
+        Node* front = temp->next;
+
+        if (front == NULL) { // If last node
+            back->next = NULL;
+        } else { // If middle node
+            back->next = front;
+            front->prev = back;
+        }
+
+        delete temp;
+        return head;
+    }
+};
