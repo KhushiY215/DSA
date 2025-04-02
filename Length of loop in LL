@@ -1,14 +1,29 @@
 //length of loop in LL
 
-int lengthOfLoop(Node* head) {
-    Node* slow = head;
-    Node* fast = head;
-    while (fast != nullptr && fast->next != nullptr) {
-        slow = slow->next;     
-        fast = fast->next->next;
-        if (slow == fast) {
-            return findLength(slow, fast);
+class Solution {
+  public:
+    // Function to find the length of a loop in the linked list.
+    int countNodesinLoop(Node *head) {
+        Node* slow = head;
+        Node* fast = head;
+
+        while (fast != nullptr && fast->next != nullptr) {
+            slow = slow->next;
+            fast = fast->next->next;
+
+            // If cycle is detected
+            if (slow == fast) {
+                int c = 1;  // Initialize count with 1 for the first node
+                Node* temp = slow->next;
+
+                while (temp != slow) {  // Traverse the loop
+                    c++;
+                    temp = temp->next;
+                }
+                return c;
+            }
         }
+        return 0;  // No loop found
     }
-    return 0; 
-}
+};
+
