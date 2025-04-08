@@ -1,0 +1,28 @@
+ListNode *SegregatetoOddEVen()
+{
+    // creating Heads of Odd and Even LinkedLists
+    ListNode *oddHead = new ListNode(-1), *oddTail = oddHead;
+    ListNode *evenHead = new ListNode(-1), *evenTail = evenHead;
+    ListNode *curr = head, *temp;
+    while (curr)
+    {
+        // Breaking the Link of the curr Node.
+        temp = curr;
+        curr = curr->next;
+        temp->next = nullptr;
+
+        if (temp->val & 1) // If odd Node,append to odd LinkedList
+        {
+            oddTail->next = temp;
+            oddTail = temp;
+        }
+        else // If Even Node,append to even LinkedList
+        {
+            evenTail->next = temp;
+            evenTail = temp;
+        }
+    }
+    evenTail->next = oddHead->next; 
+    // Appending Odd LinkedList at end of EvenLinkedList
+    return evenHead->next;
+} 
