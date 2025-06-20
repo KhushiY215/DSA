@@ -1,0 +1,202 @@
+// Online C++ compiler to run C++ program online
+/*
+Printing Star Pattern (N Rows)
+*****
+*****
+*****
+*****
+.
+.
+N rows*/
+#include <iostream>
+
+int main() {
+   int n;
+   std::cout<<"Enter n for Pat1: ";
+   std::cin>>n;
+   for(int i=0;i<n;i++){
+        for(int j=0;j<=5;j++)
+        {
+            std::cout<<"*";
+        }
+         std::cout<<"\n";
+}
+/* 10.2 Printing Number Pattern (N Rows)
+11111
+22222
+33333
+44444
+.
+.
+N rows*/
+
+   std::cout<<"\n";
+ 
+   std::cout<<"Enter n for Pat2: ";
+   std::cin>>n;
+   for(int i=0;i<n;i++){
+        for(int j=0;j<=5;j++)
+        {
+            std::cout<<i+1;
+        }
+         std::cout<<"\n";
+}
+/* 10.3 Printing Number Pattern (N Rows)
+12345
+12345
+12345
+12345
+.
+.
+N rows*/
+
+   std::cout<<"\n";
+ 
+   std::cout<<"Enter n for Pat3: ";
+   std::cin>>n;
+   for(int i=0;i<n;i++){
+        for(int j=0;j<5;j++)
+        {
+            std::cout<<j+1;
+        }
+         std::cout<<"\n";
+}
+/* 10.4 Printing * Increasing Pattern (N Rows)
+*
+**
+***
+****
+.
+.
+N rows*/
+
+   std::cout<<"\n";
+ 
+   std::cout<<"Enter n for Pat4: ";
+   std::cin>>n;
+   for(int i=0;i<n;i++){
+        for(int j=0;j<i+1;j++)
+        {
+            std::cout<<"*";
+        }
+         std::cout<<"\n";
+}
+/* 10.5 Printing number Increasing Pattern (N Rows)
+1
+22
+333
+4444
+.
+.
+N rows*/
+
+   std::cout<<"\n";
+ 
+   std::cout<<"Enter n for Pat5: ";
+   std::cin>>n;
+   for(int i=0;i<n;i++){
+        for(int j=0;j<i+1;j++)
+        {
+            std::cout<<i+1;
+        }
+         std::cout<<"\n";
+}
+/* 10.6 Printing number Increasing Pattern (N Rows)
+1
+12
+123
+1234
+.
+.
+N rows*/
+
+   std::cout<<"\n";
+ 
+   std::cout<<"Enter n for Pat6: ";
+   std::cin>>n;
+   for(int i=0;i<n;i++){
+        for(int j=0;j<i+1;j++)
+        {
+            std::cout<<j+1;
+        }
+         std::cout<<"\n";
+}
+/* 10.7 Fibonacci Series Pattern (N Rows)
+1
+1 2
+3 5 8
+13 21 34 55
+.
+N rows
+*/
+
+   std::cout << "\nEnter n for Pat7: ";
+    std::cin >> n;
+    int d=0;
+    int total = n * (n + 1) / 2; 
+    int a[1000];      
+   a[0]=1;
+   a[1]=1;
+
+   for(int i=2;i<total;i++){
+        a[i]=a[i-1]+a[i-2];
+}
+for(int i=0;i<n;i++){
+        for(int j=0;j<i+1;j++)
+        {
+            std::cout<<a[d++]<<" ";
+            
+        }
+         std::cout<<"\n";
+}
+/* 10.8 Printing Pattern of Perfect Squares with Alternating Signs in N Rows
+1
+-4 9
+-16 25 -36
+49 -64 81 -100
+.
+N rows
+*/
+
+   std::cout<<"\n";
+  d=1;
+   std::cout<<"Enter n for Pat8: ";
+   std::cin>>n;
+   for(int i=0;i<n;i++){
+        for(int j=0;j<i+1;j++)
+        {
+            if(d%2==0)
+            std::cout<<"-"<<d*d<<" ";
+            else
+            std::cout<<d*d<<" ";
+            d++;
+        }
+         std::cout<<"\n";
+}
+/* 10.9 Printing Pattern of Factorials in N Rows
+1
+1 2
+6 24 120
+.
+N rows
+*/
+
+   std::cout << "\nEnter n for Pat9: ";
+   d=0;
+   std::cin >> n;
+   a[0]=1;
+   a[1]=1;
+   total=n*n;
+   for(int i=2;i<total;i++){
+        a[i]=a[i-1]*i;
+}
+for(int i=0;i<n;i++){
+        for(int j=0;j<i+1;j++)
+        {
+            std::cout<<a[d++]<<" ";
+            
+        }
+         std::cout<<"\n";
+}
+    return 0;
+}
