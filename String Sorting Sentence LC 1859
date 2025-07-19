@@ -1,0 +1,36 @@
+class Solution {
+public:
+    string sortSentence(string s) {
+        vector<string> ans(10);
+        string temp;
+        s=s+' ';
+        int c=0;
+        int idx=0;
+        while(idx<s.size()){
+           if(s[idx]!=' '){
+            temp+=s[idx];
+            idx++;
+           }
+           else{
+            if (!temp.empty()) {  // ✅ added check to avoid UB
+                    int pos = temp[temp.size() - 1] - '0';
+                    temp.pop_back();
+                    ans[pos] = temp;
+                    temp.clear();
+                    c++;
+                }
+                idx++;
+           }
+        }
+        string res;
+           for(int i=1;i<=c;i++){
+            res+=ans[i];
+            res+=' ';
+           }
+           if (!res.empty()) {
+            res.pop_back();
+        }
+
+           return res;
+    } 
+};
