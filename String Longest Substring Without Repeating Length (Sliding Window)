@@ -1,0 +1,21 @@
+#include<bits/stdc++.h>
+#include <iostream>
+using namespace std;
+
+int main() {
+    int len=0;
+    string s="abcdef";
+    int first=0,sec=0;
+    vector<int> count(256,0);
+    while(sec<s.size()){
+        while(count[s[sec]]){
+            count[s[first]]=0;
+            first++;
+        }
+        count[s[sec]]=1;
+        len=max(len,sec-first+1);
+        sec++;
+    }
+    cout<<len;
+    return 0;
+}
