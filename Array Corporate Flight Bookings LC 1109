@@ -1,0 +1,21 @@
+class Solution {
+public:
+    vector<int> corpFlightBookings(vector<vector<int>>& bookings, int n) {
+        vector<int>arr(n+2,0);
+        vector<int>ans(n);
+        for(auto &b:bookings){
+            int x=b[0];
+            int y=b[1];
+            int k=b[2];
+
+            arr[x]+=k;
+            arr[y+1]-=k;
+        }
+        int curr=0;
+        for(int i=1;i<=n;i++){
+            curr+=arr[i];
+            ans[i-1]=curr;
+        }
+        return ans;
+    }
+};
