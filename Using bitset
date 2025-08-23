@@ -1,0 +1,21 @@
+#include <iostream>
+#include <bitset>
+using namespace std;
+
+int minBitChanges(int num1, int num2) {
+    bitset<32> b1(num1);   // binary form of num1 (32-bit)
+    bitset<32> b2(num2);   // binary form of num2 (32-bit)
+    
+    int count = 0;
+    for (int i = 0; i < 32; i++) {
+        if (b1[i] != b2[i]) count++;  // compare bits directly
+    }
+    return count;
+}
+
+int main() {
+    int num1, num2;
+    cin >> num1 >> num2;
+    cout << "Minimum changes needed: " << minBitChanges(num1, num2) << endl;
+    return 0;
+}
